@@ -2,8 +2,11 @@ import unittest
 from datetime import datetime
 
 from car import CarFactory
-from engine import CapuletEngine, SternmanEngine, WilloughbyEngine
-from battery import SpindlerBattery, NubbinBattery
+from engine.willoughby_engine import WilloughbyEngine
+from engine.capulet_engine import CapuletEngine
+from engine.sternman_engine import SternmanEngine
+from battery.spindler_battery import SpindlerBattery
+from battery.nubbin_battery import NubbinBattery
 
 
 class TestCalliope(unittest.TestCase):
