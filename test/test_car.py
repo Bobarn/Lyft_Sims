@@ -1,7 +1,7 @@
 import unittest
-from datetime import datetime
+from datetime import datetime, date
 
-from car import CarFactory
+from car import Car
 from engine.willoughby_engine import WilloughbyEngine
 from engine.capulet_engine import CapuletEngine
 from engine.sternman_engine import SternmanEngine
@@ -19,7 +19,7 @@ class TestCalliope(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
 
         self.assertTrue(car.needs_service())
 
@@ -32,7 +32,7 @@ class TestCalliope(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertFalse(car.needs_service())
 
     def test_engine_should_be_serviced(self):
@@ -44,7 +44,7 @@ class TestCalliope(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertTrue(car.needs_service())
 
     def test_battery_should_be_serviced(self):
@@ -56,8 +56,8 @@ class TestCalliope(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
-        self.assertFalse(car.needs_service())
+        car = Car(engine, battery)
+        self.assertTrue(car.needs_service())
 
 class TestGlissade(unittest.TestCase):
     def test_battery_and_engine_should_be_serviced(self):
@@ -69,7 +69,7 @@ class TestGlissade(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
 
         self.assertTrue(car.needs_service())
 
@@ -82,7 +82,7 @@ class TestGlissade(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertFalse(car.needs_service())
 
     def test_engine_should_be_serviced(self):
@@ -94,7 +94,7 @@ class TestGlissade(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertTrue(car.needs_service())
 
     def test_battery_should_be_serviced(self):
@@ -106,8 +106,8 @@ class TestGlissade(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
-        self.assertFalse(car.needs_service())
+        car = Car(engine, battery)
+        self.assertTrue(car.needs_service())
 
 class TestPalindrome(unittest.TestCase):
     def test_battery_and_engine_should_be_serviced(self):
@@ -118,7 +118,7 @@ class TestPalindrome(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
 
         self.assertTrue(car.needs_service())
 
@@ -130,7 +130,7 @@ class TestPalindrome(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertFalse(car.needs_service())
 
     def test_engine_should_be_serviced(self):
@@ -141,7 +141,7 @@ class TestPalindrome(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertTrue(car.needs_service())
 
     def test_battery_should_be_serviced(self):
@@ -152,8 +152,8 @@ class TestPalindrome(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = SpindlerBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
-        self.assertFalse(car.needs_service())
+        car = Car(engine, battery)
+        self.assertTrue(car.needs_service())
 
 class TestRorschach(unittest.TestCase):
     def test_battery_and_engine_should_be_serviced(self):
@@ -165,7 +165,7 @@ class TestRorschach(unittest.TestCase):
         last_service_date = date.fromisoformat("2020-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
 
         self.assertTrue(car.needs_service())
 
@@ -178,7 +178,7 @@ class TestRorschach(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertFalse(car.needs_service())
 
     def test_engine_should_be_serviced(self):
@@ -190,7 +190,7 @@ class TestRorschach(unittest.TestCase):
         last_service_date = date.fromisoformat("2022-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertTrue(car.needs_service())
 
     def test_battery_should_be_serviced(self):
@@ -202,8 +202,8 @@ class TestRorschach(unittest.TestCase):
         last_service_date = date.fromisoformat("2020-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
-        self.assertFalse(car.needs_service())
+        car = Car(engine, battery)
+        self.assertTrue(car.needs_service())
 
 class TestThovex(unittest.TestCase):
     def test_battery_and_engine_should_be_serviced(self):
@@ -215,7 +215,7 @@ class TestThovex(unittest.TestCase):
         last_service_date = date.fromisoformat("2020-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
 
         self.assertTrue(car.needs_service())
 
@@ -228,7 +228,7 @@ class TestThovex(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertFalse(car.needs_service())
 
     def test_engine_should_be_serviced(self):
@@ -240,7 +240,7 @@ class TestThovex(unittest.TestCase):
         last_service_date = date.fromisoformat("2023-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
+        car = Car(engine, battery)
         self.assertTrue(car.needs_service())
 
     def test_battery_should_be_serviced(self):
@@ -252,8 +252,8 @@ class TestThovex(unittest.TestCase):
         last_service_date = date.fromisoformat("2020-01-31")
         battery = NubbinBattery(current_date, last_service_date)
 
-        car = CarFactory(engine, battery)
-        self.assertFalse(car.needs_service())
+        car = Car(engine, battery)
+        self.assertTrue(car.needs_service())
 
 
 if __name__ == '__main__':
